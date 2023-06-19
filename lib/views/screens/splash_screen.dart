@@ -46,7 +46,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 CustomAppBar(),
               ],
             ),
-            Padding(padding: EdgeInsets.only(bottom: 150)),
+            Padding(
+              padding: EdgeInsets.only(bottom: 150),
+            ),
             SpinKitWave(
               color: Colors.white,
               size: 50,
