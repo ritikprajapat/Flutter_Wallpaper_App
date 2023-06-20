@@ -25,7 +25,7 @@ class _ThemeDarkState extends State<ThemeDark> {
     ),
   );
 
-  ThemeData _DarkTheme = ThemeData(
+  ThemeData _darkTheme = ThemeData(
     primarySwatch: Colors.red,
     brightness: Brightness.dark,
   );
@@ -34,7 +34,7 @@ class _ThemeDarkState extends State<ThemeDark> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: _iconBool ? _DarkTheme : _lightTheme,
+      theme: _iconBool ? _darkTheme : _lightTheme,
       home: Scaffold(
         appBar: AppBar(
           title: CustomAppBar(),
