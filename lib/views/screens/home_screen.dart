@@ -1,11 +1,12 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:wallpaper/data/data.dart';
 import 'package:wallpaper/models/wallpaper_model.dart';
 import 'package:wallpaper/views/search_view.dart';
 import 'package:wallpaper/widgets/custom_app_bar.dart';
-import 'package:wallpaper/theme_dark.dart';
+import 'package:wallpaper/widgets/themes.dart';
 
 import '../../models/categories_model.dart';
 import '../../widgets/category_tile.dart';
@@ -23,6 +24,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<CategoriesModel> categories = [];
   List<WallpaperModel> wallpapers = [];
+
+  bool _iconBool = false;
+  IconData _iconLight = Icons.wb_sunny;
+  IconData _iconDark = Icons.nights_stay;
 
   TextEditingController searchController = new TextEditingController();
 
@@ -56,9 +61,17 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         centerTitle: true,
         title: CustomAppBar(),
-        actions: [],
+        actions: [
+          IconButton(
+            padding: EdgeInsets.only(right: 20),
+            onPressed: () {
+              currentTheme.toogleTheme();
+              setState(() => _iconBool = !_iconBool);
+            },
+            icon: Icon(_iconBool ? _iconDark : _iconLight),
+          ),
+        ],
       ),
-      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Container(
           child: Column(
